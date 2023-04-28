@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.diogo.model.Person;
+import com.diogo.data.vo.v1.PersonVO;
 import com.diogo.services.PersonServices;
 
 @RestController
@@ -25,24 +25,24 @@ public class personController {
 	PersonServices service;
 
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person findById(@PathVariable(value = "id") Long id) throws Exception {
+	public PersonVO findById(@PathVariable(value = "id") Long id) throws Exception {
 		return service.findById(id);
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Person> findAll() {
+	public List<PersonVO> findAll() {
 		return service.findAll();
 	}
 
 	@ResponseStatus(org.springframework.http.HttpStatus.CREATED)
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person create(@RequestBody Person person) {
+	public PersonVO create(@RequestBody PersonVO person) {
 		return service.create(person);
 	}
 
 	@ResponseStatus(org.springframework.http.HttpStatus.OK)
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person update(@RequestBody Person person) {
+	public PersonVO update(@RequestBody PersonVO person) {
 		return service.update(person);
 	}
 
