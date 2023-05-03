@@ -1,20 +1,20 @@
-package com.diogo.unittests.mapper.mocks;
+package br.com.diogo.converter.mocks;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.diogo.data.model.Person;
 import com.diogo.data.vo.v1.PersonVO;
-import com.diogo.model.Person;
 
 public class MockPerson {
 
 
     public Person mockEntity() {
-        return mockEntity(0);
+    	return mockEntity(0);
     }
     
     public PersonVO mockVO() {
-        return mockVO(0);
+    	return mockVO(0);
     }
     
     public List<Person> mockEntityList() {
@@ -33,9 +33,9 @@ public class MockPerson {
         return persons;
     }
     
-    public Person mockEntity(Integer number) {
-        Person person = new Person();
-        person.setAddress("Addres Test" + number);
+    private Person mockEntity(Integer number) {
+    	Person person = new Person();
+    	person.setAddress("Addres Test" + number);
         person.setFirstName("First Name Test" + number);
         person.setGender(((number % 2)==0) ? "Male" : "Female");
         person.setId(number.longValue());
@@ -43,9 +43,9 @@ public class MockPerson {
         return person;
     }
 
-    public PersonVO mockVO(Integer number) {
-        PersonVO person = new PersonVO();
-        person.setAddress("Addres Test" + number);
+    private PersonVO mockVO(Integer number) {
+    	PersonVO person = new PersonVO();
+    	person.setAddress("Addres Test" + number);
         person.setFirstName("First Name Test" + number);
         person.setGender(((number % 2)==0) ? "Male" : "Female");
         person.setId(number.longValue());
