@@ -1,4 +1,4 @@
-package com.diogo.converter;
+package br.com.erudio.converter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,5 +21,4 @@ public class DozerConverter {
 		}
 		return destinationObjects;
 	}
-
 }

@@ -1,15 +1,15 @@
-package com.diogo.services;
+package br.com.erudio.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.diogo.converter.DozerConverter;
-import com.diogo.data.model.Person;
-import com.diogo.data.vo.v1.PersonVO;
-import com.diogo.exception.ResourceNotFoundException;
-import com.diogo.repository.PersonRepository;
+import br.com.erudio.converter.DozerConverter;
+import br.com.erudio.data.model.Person;
+import br.com.erudio.data.vo.v1.PersonVO;
+import br.com.erudio.exception.ResourceNotFoundException;
+import br.com.erudio.repository.PersonRepository;
 
 @Service
 public class PersonServices {
@@ -35,7 +35,7 @@ public class PersonServices {
 	}
 		
 	public PersonVO update(PersonVO person) {
-		var entity = repository.findById(person.getId())
+		var entity = repository.findById(person.getKey())
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 		
 		entity.setFirstName(person.getFirstName());
